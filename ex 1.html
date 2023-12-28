@@ -1,0 +1,40 @@
+<html>
+
+<head>
+    <script>
+        ///Write a JavaScript that validates fields related to Employee Details as Name, Age, Department, Designation, Salary, and No. Of Working Days. Validate fields for blank values (fields must not be blank) and Age must be greater than 18, no. Of Working days >25, salary = 10000.
+        
+        function Employee() {
+            if (frm.Name.value == "" || frm.age.value == "" || frm.depart.value == "" || frm.design.value == "" || frm.salary.value == "" || frm.nowd.value == "") {
+                alert("Any fields must not be blank")
+                return false
+            }
+            if (frm.age.value <= 18) {
+                alert("Age must be greater than 18")
+                return false
+            }
+            if (frm.salary.value !== "10000") {
+                alert("Salary must be 10000");
+                return false;
+            }
+            if (frm.nowd.value <= 25) {
+                alert("no. Of Working days must be more than 25 days")
+                return false
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm" onsubmit="return Employee()">
+        Name: <input type="text" name="Name"><br>
+        Age: <input type="text" name="age"><br>
+        Department: <input type="text" name="depart"><br>
+        Designation: <input type="text" name="design"><br>
+        Salary: <input type="number" name="salary"><br>
+        No. of Working Days: <input type="number" name="nowd"><br>
+        <input type="submit" value="Submit Data">
+    </form>
+</body>
+
+</html>
