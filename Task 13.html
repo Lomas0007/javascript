@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <script>
+        function validate(){
+
+            var myname = frm.name.value;
+            if (myname == null || myname == "") {
+                nme=document.getElementById('Name')
+                nme.innerHTML=" * Enter Name"
+                nme.style.color="red";
+                frm.name.focus();
+                return false;
+            }
+            else {
+                document.getElementById('Name').innerHTML="";
+            }
+
+            var mno = document.frm.num.value;
+            if (mno == "") {
+                mono=document.getElementById('Num')
+                mono.innerHTML=" * Enter Mobile No"
+                mono.style.color="red";
+                frm.num.focus();
+                return false;
+            }
+            else if (isNaN(mno)) {
+                mon=document.getElementById('Num')
+                mon.innerHTML=" * Enter Digits Only"
+                mon.style.color="red";
+                frm.num.focus();
+                return false;
+            }
+            else if(mno.length<10){
+                mn=document.getElementById('Num')
+                mn.innerHTML=" * Enter Minimum 10 Digits"
+                mn.style.color="red";
+                frm.num.focus();
+                return false;
+            }
+            else {
+                document.getElementById('Num').innerHTML="";
+            }
+            
+
+            if ((document.frm.gender[0].checked == false) && (document.frm.gender[1].checked == false)) {
+                gen=document.getElementById('Gen')
+                gen.innerHTML=" * Select your gender..."
+                gen.style.color="red";
+                return false;
+            }
+            else {
+                document.getElementById('Gen').innerHTML="";
+            }
+
+            if ((document.frm.hobby[0].checked == false) && (document.frm.hobby[1].checked == false) && (document.frm.hobby[2].checked == false)) {
+                hob=document.getElementById('Hob')
+                hob.innerHTML=" * Select atleast 1 hobby..."
+                hob.style.color="red";
+                return false;
+            }
+            else {
+                document.getElementById('Hob').innerHTML="";
+            }
+
+            if (document.frm.city.value == "-1") {
+                city=document.getElementById('City')
+                city.innerHTML=" * Select your city..."
+                city.style.color="red";
+                return false;
+            }
+            else {
+                document.getElementById('City').innerHTML="";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form name="frm" onsubmit="return validate()" method="post">
+        Enter Name: <input type="text" name="name"><span id="Name"></span><br><br>
+        Enter Number: <input type="text" name="num"><span id="Num"></span><br><br>
+        Gender: <input type="radio" name="gender" value="M">Male
+        <input type="radio" name="gender" value="F">Female <span id="Gen"></span><br><br>
+        Hobby: <input type="checkbox" name="hobby" value="Reading">Reading
+        <input type="checkbox" name="hobby" value="Dancing">Dancing
+        <input type="checkbox" name="hobby" value="Singing">Singing8 <span id="Hob"></span><br><br>
+        City:<select name="city">
+            <option value="-1" selected>---Select City---</option>
+            <option value="Ahmedabad">Ahmedabad</option>
+            <option value="Surat">Surat</option>
+            <option value="Rajkot">Rajkot</option>
+        </select><span id="City"></span><br><br>
+        <input type="submit" value="Submit Data">
+
+    </form>
+</body>
+
+</html>
